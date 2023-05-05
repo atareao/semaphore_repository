@@ -1,16 +1,16 @@
 ---
+- name: Importar clave GPG del repositorio de Podman
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_22.04/Release.key
+    state: present
+  tags: podman
+
 - name: Agregar repositorio de Podman
   apt_repository:
     repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_22.04 ./ # podman
     state: present
     update_cache: yes
     filename: podman
-  tags: podman
-
-- name: Importar clave GPG del repositorio de Podman
-  apt_key:
-    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_22.04/Release.key
-    state: present
   tags: podman
 
 - name: Actualizar lista de paquetes
