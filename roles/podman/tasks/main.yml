@@ -22,6 +22,5 @@
     name:
     - slirp4netns
     - podman
-    - podman-compose
     state: present
 
