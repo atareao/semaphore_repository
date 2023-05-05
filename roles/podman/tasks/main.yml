@@ -29,4 +29,5 @@
     name: podman-compose
     extra_args: "--user"
     state: forcereinstall
+  become: true
   become_user: lorenzo
