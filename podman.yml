@@ -1,0 +1,7 @@
+---
+- name: Instalar Podman
+  hosts: all
+  become: true
+  roles:
+    - podman
+
