@@ -28,5 +28,4 @@
   pip:
     name: podman-compose
     extra_args: --user
-  become: true
   become_user: lorenzo
