@@ -27,5 +27,6 @@
 - name: Instalar podman-compose vía pip
   pip:
     name: podman-compose
-    extra_args: --user
+    extra_args: "--user"
+    state: forcereinstall
   become_user: lorenzo
