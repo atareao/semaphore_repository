@@ -29,5 +29,6 @@
     name: podman-compose
     extra_args: "--user"
     state: forcereinstall
-  become: true
+  become: yes
+  become_method: su
   become_user: lorenzo
