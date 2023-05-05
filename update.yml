@@ -1,5 +1,5 @@
 ---
-- hosts: do
+- hosts: all
   gather_facts: true
   roles:
     - update
