@@ -1,0 +1,28 @@
+---
+- name: Agregar repositorio de Podman
+  apt_repository:
+    repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_release }} ./ # podman
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+    filename: podman
+  tags: podman
+
+- name: Importar clave GPG del repositorio de Podman
+  apt_key:
+    url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ansible_distribution_release }}/Release.key
+    state: present
+  tags: podman
+
+- name: Actualizar lista de paquetes
+  apt:
+    update_cache: yes
+
+- name: Instalar dependencias de Podman
+  apt:
+    name:
+    - slirp4netns
+    - podman
+    - podman-compose
+    state: present
+
