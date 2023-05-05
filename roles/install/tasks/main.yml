@@ -1,0 +1,13 @@
+- name: update apt cacke
+  apt:
+    update_cache: true
+    force_apt_get: true
+    cache_valid_time: 3600
+
+- name: upgrade packages
+  apt:
+    name: python3-pip
+    state: present
+    install_recommends: no
+
+
