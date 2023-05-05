@@ -1,10 +1,11 @@
-become: true
 - name: update apt cacke
   apt:
     update_cache: true
     force_apt_get: true
     cache_valid_time: 3600
+  become: true
 
 - name: upgrade packages
   apt:
     upgrade: dist
+  become: true
