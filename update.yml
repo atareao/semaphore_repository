@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: do
   become: true
   tasks:
     - name: update apt cacke
