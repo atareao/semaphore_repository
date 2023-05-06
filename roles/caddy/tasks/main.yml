@@ -37,8 +37,8 @@
     group: lorenzo
     mode: '644'
 - name: Start
+  become: true
+  become_user: lorenzo
   shell: |
     cd /home/lorenzo/podman/caddy
     podman-compose up -d
-  become: true
-  become_user: lorenzo
