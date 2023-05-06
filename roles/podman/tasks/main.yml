@@ -24,6 +24,20 @@
     - podman
     state: present
 
+# systemctl --user enable --now podman.socket
+- name: Start podman socket
+  systemd:
+    name: podman.socket
+    state: enable
+    scope: user
+  become_user: lorenzo
+  become_method: sudo
+  become: yes
+  register: result
+- debug:
+    var: result.stdout
+
+
 - name: Instalar podman-compose vía pip
   pip:
     name: podman-compose
