@@ -24,4 +24,4 @@
         - rust
     - name: install starship
       shell: |
-        cargo install starship
+        /home/lorenzo/.cargo/bin/cargo install starship
