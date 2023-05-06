@@ -1,3 +1,9 @@
+- name: Ensure directory structure
+  file:
+    path: /home/lorenzo/podman/caddy
+    state: directory
+    mode: '755'
+    
 - name: Create caddy file
   copy:
     dest: /home/lorenzo/podman/caddy/docker-compose.yml
