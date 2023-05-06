@@ -26,13 +26,12 @@
 
 # systemctl --user enable --now podman.socket
 - name: Start podman socket
+  become: yes
+  become_user: lorenzo
   systemd:
     name: podman.socket
     state: enable
     scope: user
-  become_user: lorenzo
-  become_method: sudo
-  become: yes
   register: result
 - debug:
     var: result.stdout
