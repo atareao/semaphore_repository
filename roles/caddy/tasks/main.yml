@@ -2,6 +2,8 @@
   file:
     path: /home/lorenzo/podman/caddy
     state: directory
+    owner: lorenzo
+    group: lorenzo
     mode: '755'
     
 - name: Create caddy file
