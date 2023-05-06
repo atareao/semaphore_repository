@@ -22,3 +22,6 @@
       shell: /tmp/sh.rustup.rs -y
       tags:
         - rust
+    - name: install starship
+      shell: |
+        cargo install starship
