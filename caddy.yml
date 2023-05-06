@@ -1,0 +1,7 @@
+---
+- name: Create caddy docker compose
+  hosts: all
+  become: true
+  roles:
+    - caddy
+
