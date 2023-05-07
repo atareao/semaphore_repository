@@ -16,4 +16,4 @@
     - name: do test
       shell:
         chdir: /tmp/lynis
-      cmd: "./lynis audit system"
+        cmd: "./lynis audit system"
