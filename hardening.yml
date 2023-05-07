@@ -73,10 +73,11 @@
           install tipc /bin/true
           install usb-storage /bin/true
     - name: install packages
-      apt:
+      package:
         name:
           - apt-show-versions
           - debsums
+        state: latest
     - name: banner
       copy:
         dest: "{{ item }}"
