@@ -9,6 +9,7 @@
     name:
       - python3-pip
       - build-essential
+      - cmake
     state: present
     install_recommends: no
 
