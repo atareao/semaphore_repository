@@ -13,14 +13,14 @@
         group: root
         owner: root
         recurse: true
-    - name: remove lynis
-      file:
-        path: /tmp/lynis
-        state: absent
     - name: do test
       shell:
         chdir: /tmp/lynis
         cmd: "./lynis audit system"
+    - name: remove lynis
+      file:
+        path: /tmp/lynis
+        state: absent
     - name: get report
       fetch:
         src: /var/log/lynis-report.dat
