@@ -3,61 +3,23 @@
   gather_facts: false
   become: true
   tasks:
-    - name: AllowAgentForwarding (set YES to NO)
+    - name: SSH Hardening
       lineinfile:
         path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}AllowAgentForwarding'
-        line: AllowAgentForwarding no
-    - name: AllowAgentForwarding (set YES to NO)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}AllowTcpForwarding'
-        line: AllowTcpForwarding no
-    - name: ClientAliveCountMax (set 3 to 2)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}ClientAliveCountMax'
-        line: ClientAliveCountMax 2
-    - name: LogLevel (set INFO to VERBOSE)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}LogLevel'
-        line: LogLevel VERBOSE
-    - name: MaxAuthTries (set 6 to 3)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}MaxAuthTries'
-        line: MaxAuthTries 3
-    - name: MaxSessions (set 10 to 2)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}MaxSessions'
-        line: MaxSessions 2
-    - name: TCPKeepAlive (set YES to NO)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}TCPKeepAlive'
-        line: TCPKeepAlive no
-    - name: X11Forwarding (set YES to NO)
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0,1}X11Forwarding'
-        line: X11Forwarding no
-    - name: No Root Login
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0.1}PermitRootLogin'
-        line: PermitRootLogin no
-    - name: No PasswordAuthentication
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0.1}PermitRootLogin'
-        line: PermitRootLogin no
-    - name: No PermitEmptyPasswords
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regexp: '^[#]{0.1}PermitEmptyPasswords'
-        line: PermitEmptyPasswords no
+        regexp: "{{ item.regex }}"
+        line: "{{ item.line }}"
+      loop:
+        - {regex: "^[#]{0,1}AllowAgentForwarding", line: "AllowAgentForwarding no"}
+        - {regex: "^[#]{0,1}AllowTcpForwarding", line: "AllowTcpForwarding no"}
+        - {regex: "^[#]{0,1}ClientAliveCountMax", line: "ClientAliveCountMax 2"}
+        - {regex: "^[#]{0,1}LogLevel", line: "LogLevel VERBOSE"}
+        - {regex: "^[#]{0,1}MaxAuthTries", line: "MaxAuthTries 3"}
+        - {regex: "^[#]{0,1}MaxSessions", line: "MaxSessions 2"}
+        - {regex: "^[#]{0,1}TCPKeepAlive", line: "TCPKeepAlive no"}
+        - {regex: "^[#]{0,1}X11Forwarding", line: "X11Forwarding no"}
+        - {regex: "^[#]{0.1}PermitRootLogin", line: "PermitRootLogin no"}
+        - {regex: "^[#]{0.1}PasswordAuthentication", line: "PasswordAuthentication no"}
+        - {regex: "^[#]{0.1}PermitEmptyPasswords", line: "PermitEmptyPasswords no"}
     - name: Restart ssh
       service:
         name: ssh
@@ -102,7 +64,7 @@
         - issue.net
     - name: Password aging
       lineinfile:
-        path: /etc/ssh/sshd_config
+        path: /etc/login.defs
         regexp: "{{ item.regex }}"
         line: "{{ item.line }}"
       loop:
