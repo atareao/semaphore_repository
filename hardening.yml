@@ -43,4 +43,22 @@
         path: /etc/ssh/sshd_config
         regexp: '^[#]{0,1}X11Forwarding'
         line: X11Forwarding no
-
+    - name: No Root Login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^[#]{0.1}PermitRootLogin'
+        line: PermitRootLogin no
+    - name: No PasswordAuthentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^[#]{0.1}PermitRootLogin'
+        line: PermitRootLogin no
+    - name: No PermitEmptyPasswords
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^[#]{0.1}PermitEmptyPasswords'
+        line: PermitEmptyPasswords no
+    - name: Restart ssh
+      service:
+        name: ssh
+        state: restarted
