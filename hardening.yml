@@ -100,5 +100,14 @@
       loop:
         - issue
         - issue.net
+    - name: Password aging
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "{{ item.regex }}"
+        line: "{{ item.line }}"
+      loop:
+        - {regex: "^PASS_MAX_DAYS", line: "PASS_MAX_DAYS 90"}
+        - {regex: "^PASS_MIN_DAYS", line: "PASS_MIN_DAYS 1"}
+        - {regex: "^PASS_WARN_AGE", line: "PASS_WARN_AGE 14"}
 
           
