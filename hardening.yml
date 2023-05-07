@@ -80,7 +80,7 @@
         state: latest
     - name: banner
       copy:
-        dest: "{{ item }}"
+        dest: "/etc/{{ item }}"
         content: |
           *################################################################
           #                   _    _           _   _                      #
@@ -97,8 +97,8 @@
           #  Unauthorized access will be fully investigated and reported  #
           #        to the appropriate law enforcement agencies.           #
           #################################################################
-        with_items:
-          - /etc/issue
-          - /etc/issue.net
+        loop:
+          - issue
+          - issue.net
 
           
