@@ -62,3 +62,10 @@
       service:
         name: ssh
         state: restarted
+    - name: V-77821 - Datagram Congestion Control Protocol (DCCP) kernel module must be disabled
+      copy:
+        dest: /etc/modprobe.d/ansible-hardening-disable-dccp.conf
+        content: |
+          install dccp /bin/true
+          install dccp_diag /bin/true
+          
