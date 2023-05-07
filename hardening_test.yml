@@ -17,3 +17,8 @@
       shell:
         chdir: /tmp/lynis
         cmd: "./lynis audit system"
+    - name: get report
+      fetch:
+        src: /var/log/lynis-report.dat
+        dest: /tmp
+        flat: yes
