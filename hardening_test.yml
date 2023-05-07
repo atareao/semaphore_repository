@@ -1,19 +1,19 @@
 ---
-hosts: all
-gather_facts: false
-become: true
-tasks:
-  name: get lynis
-  git:
-    repo: 'https://github.com/CISOfy/lynis'
-    dest: /tmp/lynis
-  name: set permissions
-  file:
-    path: /tmp/lynis
-    group: root
-    user: root
-    recurse: true
-  name: do test
-  shell:
-    chdir: /tmp/lynis
-    cmd: "./lynis audit system"
+- hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: get lynis
+      git:
+        repo: 'https://github.com/CISOfy/lynis'
+        dest: /tmp/lynis
+    - name: set permissions
+      file:
+        path: /tmp/lynis
+        group: root
+        user: root
+        recurse: true
+    - name: do test
+      shell:
+        chdir: /tmp/lynis
+      cmd: "./lynis audit system"
