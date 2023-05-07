@@ -4,9 +4,11 @@
     force_apt_get: true
     cache_valid_time: 3600
 
-- name: upgrade packages
+- name: install packages
   apt:
-    name: python3-pip
+    name:
+      - python3-pip
+      - build-essential
     state: present
     install_recommends: no
 
