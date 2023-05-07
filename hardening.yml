@@ -77,6 +77,7 @@
         name:
           - apt-show-versions
           - debsums
+        state: present
     - name: banner
       copy:
         dest: "{{ item }}"
