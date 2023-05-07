@@ -1,0 +1,7 @@
+all:
+   hosts:
+     do:
+       ansible_host: XXX.XXX.XXX.XXX
+       ansible_port: 1234
+       ansible_user: xxxxx
+       ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'
