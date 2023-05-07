@@ -24,5 +24,5 @@
     - name: get report
       fetch:
         src: /var/log/lynis-report.dat
-        dest: /tmp/lynis-report.dat
+        dest: /data/lynis-report.dat
         flat: yes
