@@ -77,7 +77,6 @@
         name:
           - apt-show-versions
           - debsums
-        state: present
     - name: banner
       copy:
         dest: "{{ item }}"
@@ -97,7 +96,7 @@
           #  Unauthorized access will be fully investigated and reported  #
           #        to the appropriate law enforcement agencies.           #
           #################################################################
-        loop:
+        with_items:
           - /etc/issue
           - /etc/issue.net
 
