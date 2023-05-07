@@ -12,7 +12,7 @@
       lineinfile:
         path: /etc/ssh/sshd_config
         regexp: '^[#]{0,1}AllowTcpForwarding'
-        line: AllowAgentForwarding no
+        line: AllowTcpForwarding no
     - name: ClientAliveCountMax (set 3 to 2)
       lineinfile:
         path: /etc/ssh/sshd_config
@@ -62,10 +62,19 @@
       service:
         name: ssh
         state: restarted
-    - name: V-77821 - Datagram Congestion Control Protocol (DCCP) kernel module must be disabled
+    - name: disable protocols dcp, dccp_diag, rds, sctp, tipc
       copy:
-        dest: /etc/modprobe.d/ansible-hardening-disable-dccp.conf
+        dest: /etc/modprobe.d/CIS.conf
         content: |
           install dccp /bin/true
           install dccp_diag /bin/true
+          install rds /bin/true
+          install sctp /bin/true
+          install tipc /bin/true
+          install usb-storage /bin/true
+    - name: install packages
+      apt:
+        name:
+          - apt-show-versions
+          - debsums
           
