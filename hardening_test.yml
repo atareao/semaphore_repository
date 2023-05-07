@@ -13,6 +13,10 @@
         group: root
         owner: root
         recurse: true
+    - name: remove lynis
+      file:
+        path: /tmp/lynis
+        state: absent
     - name: do test
       shell:
         chdir: /tmp/lynis
