@@ -11,7 +11,7 @@
       file:
         path: /tmp/lynis
         group: root
-        user: root
+        owner: root
         recurse: true
     - name: do test
       shell:
