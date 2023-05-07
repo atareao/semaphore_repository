@@ -17,9 +17,9 @@
         - {regex: "^[#]{0,1}MaxSessions", line: "MaxSessions 2"}
         - {regex: "^[#]{0,1}TCPKeepAlive", line: "TCPKeepAlive no"}
         - {regex: "^[#]{0,1}X11Forwarding", line: "X11Forwarding no"}
-        - {regex: "^[#]{0.1}PermitRootLogin", line: "PermitRootLogin no"}
-        - {regex: "^[#]{0.1}PasswordAuthentication", line: "PasswordAuthentication no"}
-        - {regex: "^[#]{0.1}PermitEmptyPasswords", line: "PermitEmptyPasswords no"}
+        - {regex: "^[#]{0,1}PermitRootLogin", line: "PermitRootLogin no"}
+        - {regex: "^[#]{0,1}PasswordAuthentication", line: "PasswordAuthentication no"}
+        - {regex: "^[#]{0,1}PermitEmptyPasswords", line: "PermitEmptyPasswords no"}
     - name: Restart ssh
       service:
         name: ssh
