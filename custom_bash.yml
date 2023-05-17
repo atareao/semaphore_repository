@@ -11,8 +11,8 @@
     - name: Download starship
       get_url:
         url: https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-gnu.tar.gz
-        dest: starship.tar.gz
+        dest: /tmp/starship.tar.gz
     - name: Download atuin
       get_url:
         url: https://github.com/ellie/atuin/releases/download/v14.0.1/atuin-v14.0.1-x86_64-unknown-linux-gnu.tar.gz
-        dest: atuin.tar.gz
+        dest: /tmp/atuin.tar.gz
