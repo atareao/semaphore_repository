@@ -16,3 +16,12 @@
       get_url:
         url: https://github.com/ellie/atuin/releases/download/v14.0.1/atuin-v14.0.1-x86_64-unknown-linux-gnu.tar.gz
         dest: /tmp/atuin.tar.gz
+    - name: Unarchive
+      unarchive:
+        src: "{{ item }}"
+        dest: /home/lorenzo/.local/bin
+        remote_src: true
+      loop:
+        - starship.tar.gz
+        - atuin.tar.gz
+
