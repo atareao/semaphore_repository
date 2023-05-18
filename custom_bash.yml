@@ -18,7 +18,7 @@
         dest: /tmp/atuin.tar.gz
     - name: Unarchive
       unarchive:
-        src: "{{ item }}"
+        src: "/tmp/{{ item }}"
         dest: /home/lorenzo/.local/bin
         remote_src: true
       loop:
