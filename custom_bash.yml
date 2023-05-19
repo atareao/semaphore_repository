@@ -24,4 +24,12 @@
       loop:
         - starship.tar.gz
         - atuin.tar.gz
+    - name: config
+      file:
+        path: /home/lorenzo/.config
+        state: directory
+    - name: Configure starship
+      shell: |
+        /home/lorenzo/.local/bin/starship preset tokyo-night -o ~/.config/starship.toml
+
 
