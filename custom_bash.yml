@@ -31,5 +31,10 @@
     - name: Configure starship
       shell: |
         /home/lorenzo/.local/bin/starship preset tokyo-night -o ~/.config/starship.toml
+    - name: Set in bashrc
+      lineinfile:
+        path: /home/lorenzo/.bashrc
+        state: present
+        line: 'eval "$(starship init bash)"'
 
 
