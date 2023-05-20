@@ -14,7 +14,7 @@
     - name: in the path
       lineinfile:
         dest: /home/{{ myuser }}/.bashrc
-        line: "export PATH={{ extra_path }}:$PATH"
+        line: "export PATH=/home/{{ myuser }}/{{ bindir }}:$PATH"
     - name: Download starship
       get_url:
         url: https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-gnu.tar.gz
