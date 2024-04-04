@@ -9,7 +9,7 @@
         regexp: "{{ item.regex }}"
         line: "{{ item.line }}"
       loop:
-        - {regex: "^[#]{0,1}Port", line: "Port 3223"}
+        #- {regex: "^[#]{0,1}Port", line: "Port 3223"}
         - {regex: "^[#]{0,1}AllowAgentForwarding", line: "AllowAgentForwarding no"}
         - {regex: "^[#]{0,1}AllowTcpForwarding", line: "AllowTcpForwarding no"}
         - {regex: "^[#]{0,1}ClientAliveCountMax", line: "ClientAliveCountMax 2"}
